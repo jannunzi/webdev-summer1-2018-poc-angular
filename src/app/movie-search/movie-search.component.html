@@ -1,0 +1,16 @@
+<h1>Movie Search</h1>
+
+<input [(ngModel)]="keyword"/>
+<button (click)="searchMovie(keyword)">Search Movie</button>
+
+<h2>Results ({{movies.length}})</h2>
+
+<ul>
+  <li (click)="findMovieDetails(movie)" *ngFor="let movie of movies">
+    {{movie.Title}} {{movie.imdbID}}
+  </li>
+</ul>
+
+<h2>{{details.Title}}</h2>
+<button (click)="likes(details)">Like</button>
+<p>{{details.Plot}}</p>
