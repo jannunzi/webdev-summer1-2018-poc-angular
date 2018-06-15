@@ -8,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class FormEditorComponent implements OnInit {
 
   inputType = 'text';
+  formElements = [];
   constructor() { }
 
   addFormElement(inputType) {
     console.log(inputType);
+    const formElement = {
+      type: inputType
+    };
+    this.formElements.push(formElement);
   }
 
   ngOnInit() {
