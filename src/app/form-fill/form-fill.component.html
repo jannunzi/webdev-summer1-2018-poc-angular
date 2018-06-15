@@ -1,3 +1,42 @@
 <h1>Fill Form</h1>
 
 {{form.name}}
+
+<div *ngFor="let formElement of form.elements">
+  <div [ngSwitch]="formElement.type">
+    <div *ngSwitchCase="'fillin'">
+      <div *ngIf="formElement.fillIn">
+        <span *ngFor="let t of formElement.fillIn.split('\n')">
+          <span [ngSwitch]="t.startsWith('*')">
+            <span *ngSwitchCase="false">
+              {{t}}
+            </span>
+            <span *ngSwitchCase="true">
+              <input placeholder="{{t.split('=')[0]}}"
+                     value="{{t.split('=')[1]}}">
+            </span>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div *ngSwitchCase="'radios'">
+      <div *ngIf="formElement.options">
+        <div *ngFor="let option of formElement.options.split('\n')">
+          <label>
+            <input type="radio"
+                   name="{{formElement.name}}"/>
+            <span>{{option}}</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="'text'">
+      <input value="{{formElement.value}}"
+             placeholder="{{formElement.placeholder}}"/>
+    </div>
+    <div *ngSwitchCase="'textarea'">
+      <textarea rows="{{formElement.rows}}"
+                cols="{{formElement.columns}}">{{formElement.value}}</textarea>
+    </div>
+  </div>
+</div>
