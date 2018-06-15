@@ -4,6 +4,7 @@
   <option value="text">Text</option>
   <option value="textarea">Text Area</option>
   <option value="radios">Radio Buttons</option>
+  <option value="fillin">Fill in the blanks</option>
 </select>
 
 <button (click)="addFormElement(inputType)">
@@ -22,6 +23,24 @@
     <br/>
     <input [(ngModel)]="formElement.value"
            placeholder="value"/>
+    <div *ngSwitchCase="'fillin'">
+      <h2>Fill in the blanks</h2>
+      <textarea [(ngModel)]="formElement.fillIn"></textarea>
+      <h3>Preview</h3>
+      <div *ngIf="formElement.fillIn">
+        <span *ngFor="let t of formElement.fillIn.split('\n')">
+          <span [ngSwitch]="t.startsWith('*')">
+            <span *ngSwitchCase="false">
+              {{t}}
+            </span>
+            <span *ngSwitchCase="true">
+              <input placeholder="{{t.split('=')[0]}}"
+                     value="{{t.split('=')[1]}}">
+            </span>
+          </span>
+        </span>
+      </div>
+    </div>
     <div *ngSwitchCase="'radios'">
       <h2>Radio button group form element</h2>
       <textarea [(ngModel)]="formElement.options"
