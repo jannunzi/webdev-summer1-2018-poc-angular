@@ -18,18 +18,27 @@
     <br/>
     <input [(ngModel)]="formElement.placeholder"
            placeholder="placeholder"/>
+    <br/>
+    <input [(ngModel)]="formElement.value"
+           placeholder="value"/>
     <div *ngSwitchCase="'text'">
       <h2>Text form element</h2>
-      <input [(ngModel)]="size"
+      <input [(ngModel)]="formElement.size"
              placeholder="size"/>
+      <h3>Preview</h3>
+      <input value="{{formElement.value}}"
+             placeholder="{{formElement.placeholder}}"/>
     </div>
     <div *ngSwitchCase="'textarea'">
       <h2>Textarea form element</h2>
-      <input [(ngModel)]="rows"
+      <input [(ngModel)]="formElement.rows"
              placeholder="rows"/>
       <br/>
-      <input [(ngModel)]="columns"
+      <input [(ngModel)]="formElement.columns"
              placeholder="columns"/>
+      <h3>Preview</h3>
+      <textarea rows="{{formElement.rows}}"
+                cols="{{formElement.columns}}">{{formElement.value}}</textarea>
     </div>
   </div>
 </div>
