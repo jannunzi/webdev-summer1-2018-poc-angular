@@ -8,16 +8,20 @@ import {FormsModule} from "@angular/forms";
 import {MovieServiceClient} from "./services/movie.service.client";
 import { FormEditorComponent } from './form-editor/form-editor.component';
 import {FormServiceClient} from "./services/form.service.client";
+import { FormListComponent } from './form-list/form-list.component';
+import {routing} from "./app.routing";
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieSearchComponent,
-    FormEditorComponent
+    FormEditorComponent,
+    FormListComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    routing
   ],
   providers: [
     // OmdapiServiceClientJs,
