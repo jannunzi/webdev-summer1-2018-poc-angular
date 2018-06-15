@@ -1,5 +1,8 @@
 <h1>Form Editor</h1>
 
+<input [(ngModel)]="formName"
+       placeholder="name"/>
+
 <select [(ngModel)]="inputType">
   <option value="text">Text</option>
   <option value="textarea">Text Area</option>
@@ -10,6 +13,12 @@
 <button (click)="addFormElement(inputType)">
   Add form element
 </button>
+
+<button (click)="saveForm()"
+  style="float:right">
+  Save
+</button>
+
 <hr/>
 
 <div *ngFor="let formElement of formElements">

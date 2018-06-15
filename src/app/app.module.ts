@@ -7,6 +7,7 @@ import { MovieSearchComponent } from './movie-search/movie-search.component';
 import {FormsModule} from "@angular/forms";
 import {MovieServiceClient} from "./services/movie.service.client";
 import { FormEditorComponent } from './form-editor/form-editor.component';
+import {FormServiceClient} from "./services/form.service.client";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormEditorComponent } from './form-editor/form-editor.component';
   ],
   providers: [
     // OmdapiServiceClientJs,
-    MovieServiceClient
+    MovieServiceClient,
+    FormServiceClient
   ],
   bootstrap: [AppComponent]
 })

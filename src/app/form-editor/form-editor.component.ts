@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormServiceClient} from "../services/form.service.client";
 
 @Component({
   selector: 'app-form-editor',
@@ -9,7 +10,17 @@ export class FormEditorComponent implements OnInit {
 
   inputType = 'fillin';
   formElements = [];
-  constructor() { }
+  formName;
+  constructor(private formService: FormServiceClient) { }
+
+  saveForm() {
+    const form = {
+      name: this.formName,
+      elements: this.formElements
+    };
+    this.formService
+      .saveForm(form)
+  }
 
   up(element) {
     const index = this.formElements.indexOf(element);
