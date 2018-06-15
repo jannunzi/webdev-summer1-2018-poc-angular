@@ -10,13 +10,15 @@ import { FormEditorComponent } from './form-editor/form-editor.component';
 import {FormServiceClient} from "./services/form.service.client";
 import { FormListComponent } from './form-list/form-list.component';
 import {routing} from "./app.routing";
+import { FormFillComponent } from './form-fill/form-fill.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieSearchComponent,
     FormEditorComponent,
-    FormListComponent
+    FormListComponent,
+    FormFillComponent
   ],
   imports: [
     BrowserModule,

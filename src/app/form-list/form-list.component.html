@@ -3,5 +3,6 @@
 <ul>
   <li *ngFor="let form of forms">
     {{form.name}}
+    <a routerLink="/form/{{form._id}}/fill">Fill Form</a>
   </li>
 </ul>
