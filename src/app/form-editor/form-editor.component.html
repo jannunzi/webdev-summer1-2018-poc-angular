@@ -3,6 +3,7 @@
 <select [(ngModel)]="inputType">
   <option value="text">Text</option>
   <option value="textarea">Text Area</option>
+  <option value="radios">Radio Buttons</option>
 </select>
 
 <button (click)="addFormElement(inputType)">
@@ -21,6 +22,34 @@
     <br/>
     <input [(ngModel)]="formElement.value"
            placeholder="value"/>
+    <div *ngSwitchCase="'radios'">
+      <h2>Radio button group form element</h2>
+      <textarea [(ngModel)]="formElement.options"
+             placeholder="options"></textarea>
+      <br/>
+      <label>
+        <input name="orientation"
+               [(ngModel)]="formElement.orientation"
+               type="radio"/>
+        Vertical
+      </label>
+      <label>
+        <input name="orientation"
+               [(ngModel)]="formElement.orientation"
+               type="radio"/>
+        Horizontal
+      </label>
+      <h3>Preview</h3>
+      <div *ngIf="formElement.options">
+        <div *ngFor="let option of formElement.options.split('\n')">
+          <label>
+          <input type="radio"
+                 name="{{formElement.name}}"/>
+            <span>{{option}}</span>
+          </label>
+        </div>
+      </div>
+    </div>
     <div *ngSwitchCase="'text'">
       <h2>Text form element</h2>
       <input [(ngModel)]="formElement.size"
