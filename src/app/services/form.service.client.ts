@@ -12,4 +12,8 @@ export class FormServiceClient {
     return fetch('http://localhost:3000/api/form')
       .then(response => response.json());
   }
+  findFormById(formId) {
+    return fetch('http://localhost:3000/api/form/' + formId)
+      .then(response => response.json());
+  }
 }
