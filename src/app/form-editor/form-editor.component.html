@@ -11,5 +11,12 @@
 <hr/>
 
 <div *ngFor="let formElement of formElements">
-  {{formElement.type}}
+  <div [ngSwitch]="formElement.type">
+    <div *ngSwitchCase="'text'">
+      <h1>Text</h1>
+    </div>
+    <div *ngSwitchCase="'textarea'">
+      <h1>Text Area</h1>
+    </div>
+  </div>
 </div>
