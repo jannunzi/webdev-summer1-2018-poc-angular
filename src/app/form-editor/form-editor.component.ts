@@ -7,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormEditorComponent implements OnInit {
 
-  inputType = '';
+  inputType = 'text';
   constructor() { }
+
+  addFormElement(inputType) {
+    console.log(inputType);
+  }
 
   ngOnInit() {
   }
