@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormServiceClient} from "../services/form.service.client";
 
 @Component({
   selector: 'app-form-list',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private formService: FormServiceClient) { }
 
+  forms = [];
   ngOnInit() {
+    this.formService.findAllForms()
+      .then(forms => this.forms = forms);
   }
 
 }

@@ -17,6 +17,7 @@ export class FormEditorComponent implements OnInit {
   saveForm() {
     const form = {
       name: this.formName,
+      creator: this.creator,
       elements: this.formElements
     };
     this.formService
