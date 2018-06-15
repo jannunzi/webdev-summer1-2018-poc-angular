@@ -10,7 +10,8 @@ export class FormEditorComponent implements OnInit {
 
   inputType = 'fillin';
   formElements = [];
-  formName;
+  formName = 'form123';
+  creator = 'alice';
   constructor(private formService: FormServiceClient) { }
 
   saveForm() {
