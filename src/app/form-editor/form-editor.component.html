@@ -9,4 +9,7 @@
   Add form element
 </button>
 <hr/>
-{{formElements.length}}
+
+<div *ngFor="let formElement of formElements">
+  {{formElement.type}}
+</div>

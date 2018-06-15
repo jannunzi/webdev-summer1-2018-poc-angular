@@ -12,7 +12,6 @@ export class FormEditorComponent implements OnInit {
   constructor() { }
 
   addFormElement(inputType) {
-    console.log(inputType);
     const formElement = {
       type: inputType
     };
