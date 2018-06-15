@@ -12,11 +12,24 @@
 
 <div *ngFor="let formElement of formElements">
   <div [ngSwitch]="formElement.type">
+    <h1>Form element</h1>
+    <input [(ngModel)]="formElement.name"
+           placeholder="name"/>
+    <br/>
+    <input [(ngModel)]="formElement.placeholder"
+           placeholder="placeholder"/>
     <div *ngSwitchCase="'text'">
-      <h1>Text</h1>
+      <h2>Text form element</h2>
+      <input [(ngModel)]="size"
+             placeholder="size"/>
     </div>
     <div *ngSwitchCase="'textarea'">
-      <h1>Text Area</h1>
+      <h2>Textarea form element</h2>
+      <input [(ngModel)]="rows"
+             placeholder="rows"/>
+      <br/>
+      <input [(ngModel)]="columns"
+             placeholder="columns"/>
     </div>
   </div>
 </div>
