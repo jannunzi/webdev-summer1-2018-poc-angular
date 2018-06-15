@@ -11,6 +11,11 @@ export class FormEditorComponent implements OnInit {
   formElements = [];
   constructor() { }
 
+  removeFormElement(element) {
+    const index = this.formElements.indexOf(element);
+    this.formElements.splice(index, 1);
+  }
+
   addFormElement(inputType) {
     const formElement = {
       type: inputType

@@ -14,6 +14,10 @@
 
 <div *ngFor="let formElement of formElements">
   <div [ngSwitch]="formElement.type">
+    <button (click)="removeFormElement(formElement)"
+    style="float:right">
+      Delete
+    </button>
     <h1>Form element</h1>
     <input [(ngModel)]="formElement.name"
            placeholder="name"/>
