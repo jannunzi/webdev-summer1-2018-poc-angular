@@ -12,7 +12,7 @@
               {{t}}
             </span>
             <span *ngSwitchCase="true">
-              <input placeholder="{{t.split('=')[0]}}"
+              <input [(ngModel)]="formSubmission[formElement.name][t.split('=')[0]]" placeholder="{{t.split('=')[0]}}"
                      value="{{t.split('=')[1]}}">
             </span>
           </span>
@@ -23,7 +23,8 @@
       <div *ngIf="formElement.options">
         <div *ngFor="let option of formElement.options.split('\n')">
           <label>
-            <input type="radio"
+            <input [(ngModel)]="formSubmission[formElement.name]"
+                   type="radio"
                    name="{{formElement.name}}"/>
             <span>{{option}}</span>
           </label>
@@ -31,12 +32,18 @@
       </div>
     </div>
     <div *ngSwitchCase="'text'">
-      <input value="{{formElement.value}}"
+      <input [(ngModel)]="formSubmission[formElement.name]"
+             value="{{formElement.value}}"
              placeholder="{{formElement.placeholder}}"/>
     </div>
     <div *ngSwitchCase="'textarea'">
-      <textarea rows="{{formElement.rows}}"
+      <textarea [(ngModel)]="formSubmission[formElement.name]"
+                rows="{{formElement.rows}}"
                 cols="{{formElement.columns}}">{{formElement.value}}</textarea>
     </div>
   </div>
 </div>
+
+<button (click)="sumitForm(formSubmission)">
+  Submit
+</button>

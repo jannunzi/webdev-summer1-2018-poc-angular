@@ -15,6 +15,10 @@ export class FormFillComponent implements OnInit {
   }
 
   form = {};
+  formSubmission = {};
+  submitForm(formSubmission) {
+    console.log(formSubmission);
+  }
   loadForm(formId) {
     this.formService.findFormById(formId)
       .then(form => this.form = form);
